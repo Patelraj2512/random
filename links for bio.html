@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Professional Profile</title>
+
+    <!-- Add Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Universal Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #6dd5fa, #ffffff); /* Gradient background */
+            color: #333;
+            text-align: center;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #ffffff, #f5f5f5); /* Gradient container */
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        .profile-pic-container {
+            display: inline-block;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #2980b9;
+            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #34495e;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .bio-description {
+            font-size: 14px;
+            color: #34495e;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            color: #2c3e50;
+            padding: 10px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+
+        .social-link.instagram:hover { background-color: #e4405f; }
+        .social-link.snapchat:hover { background-color: #fffc00; color: #000; }
+        .social-link.linkedin:hover { background-color: #0077b5; }
+        .social-link.github:hover { background-color: #333; }
+        .social-link.facebook:hover { background-color: #3b5998; }
+
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .bio-description {
+                font-size: 13px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .social-link {
+                width: 90%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Picture -->
+        <div class="profile-pic-container" id="profile-pic-container">
+            <img id="profile-pic" src="your-profile-pic.jpg" alt="Your Profile Picture" class="profile-pic">
+            <input type="file" id="file-input" class="file-upload" accept="image/*">
+        </div>
+
+        <!-- Name and Title -->
+        <header>
+            <h1>Raj Patel</h1>
+            <p class="title">Web Developer | Software Engineer</p>
+        </header>
+
+        <!-- Bio Section -->
+        <section class="bio">
+            <p class="bio-description">
+                Hi, I'm Raj Patel, a B.Tech (IT) student at Charotar University of Science & Technology (CHARUSAT). I'm passionate about web development and technology, with expertise in Java, Spring, and full-stack development. Always eager to learn and collaborate, I am open to discussing tech innovations, potential projects, or exciting opportunities. Let's connect!
+            </p>
+        </section>
+
+        <!-- Social Links -->
+        <section class="social-links">
+            <a href="https://www.instagram.com/patelraj2512" target="_blank" class="social-link instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.snapchat.com/add/patel_raj2512" target="_blank" class="social-link snapchat">
+                <i class="fab fa-snapchat"></i> Snapchat
+            </a>
+            <a href="https://www.linkedin.com/in/patel-raj-300141283/" target="_blank" class="social-link linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/Patelraj2512" target="_blank" class="social-link github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.facebook.com/patelraj.patel.1840/" target="_blank" class="social-link facebook">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Raj Patel. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const profilePic = document.getElementById('profile-pic');
+
+        window.onload = () => {
+            const savedImage = localStorage.getItem('profilePic');
+            if (savedImage) {
+                profilePic.src = savedImage;
+            }
+        };
+
+        profilePic.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    profilePic.src = event.target.result;
+                    localStorage.setItem('profilePic', event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
