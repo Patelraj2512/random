@@ -156,9 +156,9 @@
 <body>
     <div class="container">
         <!-- Profile Picture -->
-        <div class="profile-pic-container" id="profile-pic-container">
+        <div class="profile-pic-container">
+            <!-- Directly add the image path here -->
             <img id="profile-pic" src="1.jpg" alt="Your Profile Picture" class="profile-pic">
-            <input type="file" id="file-input" class="file-upload" accept="image/*">
         </div>
 
         <!-- Name and Title -->
@@ -198,32 +198,5 @@
             <p>&copy; 2024 Raj Patel. All Rights Reserved.</p>
         </footer>
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        const fileInput = document.getElementById('file-input');
-        const profilePic = document.getElementById('profile-pic');
-
-        window.onload = () => {
-            const savedImage = localStorage.getItem('profilePic');
-            if (savedImage) {
-                profilePic.src = savedImage;
-            }
-        };
-
-        profilePic.addEventListener('click', () => fileInput.click());
-
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    profilePic.src = event.target.result;
-                    localStorage.setItem('profilePic', event.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
 </body>
 </html>
