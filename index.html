@@ -86,25 +86,40 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ffffff;
-            color: #2c3e50;
-            padding: 10px 15px;
+            padding: 15px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 14px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            color: #fff;
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+        }
+
+        .social-link.snapchat {
+            background: linear-gradient(to right, #fffc00, #fffc57);
+            color: #000;
+        }
+
+        .social-link.linkedin {
+            background: linear-gradient(to right, #0072b1, #1c86d1);
+        }
+
+        .social-link.github {
+            background: linear-gradient(to right, #333, #666);
+        }
+
+        .social-link.facebook {
+            background: linear-gradient(to right, #3b5998, #4a69bd);
         }
 
         .social-link:hover {
-            transform: scale(1.05);
-            color: #ffffff;
+            transform: scale(1.1);
+            filter: brightness(1.2);
         }
-
-        .social-link.instagram:hover { background-color: #e4405f; }
-        .social-link.snapchat:hover { background-color: #fffc00; color: #000; }
-        .social-link.linkedin:hover { background-color: #0077b5; }
-        .social-link.github:hover { background-color: #333; }
-        .social-link.facebook:hover { background-color: #3b5998; }
 
         footer {
             margin-top: 40px;
